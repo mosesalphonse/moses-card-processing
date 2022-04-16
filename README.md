@@ -29,7 +29,6 @@ Note: Postgress DB runs in a docker container
 ```
 https://localhost:8080/cards.html
 
-
 ```
 ### Swagger UI
 
@@ -48,3 +47,13 @@ https://localhost:8080/q/openapi
 
 ```
 
+## Build and Run as Native Executable
+
+```
+mvn clean package -Dquarkus.package.type=native
+
+docker run -it --rm=true --name quarkus_test -e POSTGRES_USER=quarkus_test -e POSTGRES_PASSWORD=quarkus_test -e POSTGRES_DB=quarkus_test -p 5432:5432 postgres:13.3
+
+./target/creditcard-processing-1.0.0-SNAPSHOT-native-image-source-jarurce-jar
+
+```
