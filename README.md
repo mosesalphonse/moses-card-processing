@@ -24,26 +24,28 @@ Note: Postgress DB runs in a docker container
 
 ## Verify
 
+Note: Change your IP/DNS where your code is running while testing the below endpoints
+
 ### UI
 
 ```
-https://localhost:8080/cards.html
+http://localhost:8080/cards.html
 
 ```
 ### Swagger UI
 
 ```
-https://localhost:8080/q/swagger-ui/
+http://localhost:8080/q/swagger-ui/
 
 ```
 ### Health and Metrics
 
 ```
-https://localhost:8080/q/health
+http://localhost:8080/q/health
 
-https://localhost:8080/q/metrics
+http://localhost:8080/q/metrics
 
-https://localhost:8080/q/openapi
+http://localhost:8080/q/openapi
 
 ```
 
