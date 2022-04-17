@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Reactive REST - Quarkus</title>
+    <title>Card Processing App</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script type="application/javascript" src="cards.js"></script>
@@ -22,12 +22,12 @@
     <br>
     <label>Card Number</label>
     <br>
-    <input id="card-number" type="text" required>
+    <input id="card-number" type="number"  max="100" size="20">
     <br>
     <br>
     <label>Limit</label>
     <br>
-    <input id="card-limit" type="text" required>
+    <input id="card-limit" type="number"  max="100" size="20">
     <br>
     <br>
     <button id="create-card-button" type="button">Add</button>
