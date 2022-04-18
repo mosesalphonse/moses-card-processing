@@ -74,8 +74,6 @@ public class CreditCardResource {
         LOG.info("Card Number isValid :" + isValidCard);
         card.balance = 0.0;
         if (!isValidCard || card.cardNumber == 0)
-            //return card.save(client)
-               // .onItem().transform(uri -> Response.status(400).build());
                return Uni(Response.status(400).build());
         else
             return card.save(client)
