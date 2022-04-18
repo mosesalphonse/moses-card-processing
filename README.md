@@ -15,6 +15,10 @@ Docker 20.10.14
 ## Build and Run in local
 
 ```
+git clone https://github.com/mosesalphonse/moses-card-processing.git
+
+cd moses-card-processing
+
 mvn compile quarkus:dev
 
 ```
