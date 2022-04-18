@@ -31,6 +31,11 @@ function refresh() {
 $(document).ready(function () {
 
     $('#create-card-button').click(function () {
+
+        if(!IsEmpty())
+        {
+            return false;  
+        }
         var cardName = $('#card-name').val();
         var cardNumber = $('#card-number').val();
         var cardLimit = $('#card-limit').val();
@@ -47,3 +52,10 @@ $(document).ready(function () {
 
 });
 
+function IsEmpty() {
+    if (((document.getElementById('card-name').value === "")) || (document.getElementById('card-number').value === "") || (document.getElementById('card-limit').value === "")){
+      alert("Please Enter valid input");
+      return false;
+    }
+    return true;
+  }

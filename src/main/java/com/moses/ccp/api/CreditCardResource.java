@@ -69,18 +69,23 @@ public class CreditCardResource {
      */
     @POST
     public Uni<Response> create(CreditCard card) {
-        boolean isValidCard = cardService.luhn(card.cardNumber.toString().replaceAll("\\s+", ""));
+        boolean isValidCard = cardService.isValidCard(card.cardNumber.toString().replaceAll("\\s+", ""));
         LOG.info("Card Number :" + card.cardNumber.toString().replaceAll("\\s+", ""));
         LOG.info("Card Number isValid :" + isValidCard);
         card.balance = 0.0;
-        if (!isValidCard)
-            return card.save(client)
-                .onItem().transform(uri -> Response.status(400).build());
+        if (!isValidCard || card.cardNumber == 0)
+            //return card.save(client)
+               // .onItem().transform(uri -> Response.status(400).build());
+               return Uni(Response.status(400).build());
         else
             return card.save(client)
                 .onItem().transform(id -> URI.create("/cards/" + id))
                 .onItem().transform(uri -> Response.created(uri).build());
 
+    }
+
+    private Uni<Response> Uni(Response build) {
+        return null;
     }
 
 }

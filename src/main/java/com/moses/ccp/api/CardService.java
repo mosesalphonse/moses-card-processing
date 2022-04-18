@@ -20,13 +20,14 @@ public class CardService {
      * @param cc The CreditCard Number as String
      * @return boolean value
      */
-    public boolean luhn(String cc) {
-        final boolean[] dbl = { false };
-        return cc
-                .chars()
-                .map(c -> Character.digit((char) c, 10))
-                .map(i -> ((dbl[0] = !dbl[0])) ? (((i * 2) > 9) ? (i * 2) - 9 : i * 2) : i)
-                .sum() % 10 == 0;
+    public boolean isValidCard(String cardNumber)
+    {
+        int[] a = {cardNumber.length() % 2 == 0 ? 1 : 2}; 
+        return cardNumber.chars()
+        .map(i -> i - '0')                          // convert to the int equivalent
+        .map(n -> n * (a[0] = a[0] == 1 ? 2 : 1))   // multiply by 1, 2 alternating
+        .map(n -> n > 9 ? n - 9 : n)                // handle sum of digits
+        .sum() % 10 == 0; 
     }
 
 }
