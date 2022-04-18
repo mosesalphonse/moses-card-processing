@@ -29,8 +29,8 @@ public class CardServiceTest {
     @Test
     public void luhnTest()
     {
-        Assertions.assertEquals(true, cardService.luhn("1111222233334444"));
-        Assertions.assertEquals(false, cardService.luhn("9874366644"));
+        Assertions.assertEquals(true, cardService.isValidCard("1111222233334444"));
+        Assertions.assertEquals(false, cardService.isValidCard("9874366644"));
     }
     
 }
