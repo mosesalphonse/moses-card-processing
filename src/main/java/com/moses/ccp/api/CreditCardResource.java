@@ -1,12 +1,13 @@
-
 package com.moses.ccp.api;
 
 import java.net.URI;
 import javax.inject.Inject;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import org.jboss.logging.Logger;
@@ -68,6 +69,7 @@ public class CreditCardResource {
      * @return Http Response code
      */
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
     public Uni<Response> create(CreditCard card) {
         boolean isValidCard = cardService.isValidCard(card.cardNumber.toString().replaceAll("\\s+", ""));
         LOG.info("Card Number :" + card.cardNumber.toString().replaceAll("\\s+", ""));
